@@ -2,36 +2,65 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-
-
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+  # LESSを使うので、sassはコメントアウト
+  # gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
+  gem 'therubyracer'
   gem 'uglifier', '>= 1.0.3'
 end
 
+# みんな大好きjson
+gem 'json'
+
+# mongoid
+gem 'mongoid', '~> 3.0.0'
+gem 'mongo_ext'
+gem 'bson_ext'
+
+# ご存知jQuery
 gem 'jquery-rails'
+gem 'jquery-cookie-rails' # jquery-cookie
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+# LESS コンパイルのときにうまく動いてくれないので、assetsの外に
+gem 'less-rails'
+gem 'less-rails-bootstrap'
+gem 'less-rails-bootswatch'
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+# haml-rails => 面倒な設定をやってくれるため
+gem 'haml-rails'
 
-# Use unicorn as the app server
-# gem 'unicorn'
+# nokogiriを組み込み(初回インストール時は別途ライブラリもインストール要)
+gem 'nokogiri'
 
-# Deploy with Capistrano
-# gem 'capistrano'
+# デプロイの手助けをしてくれる
+gem 'capistrano'
 
-# To use debugger
-# gem 'debugger'
+# cronの簡単設定
+gem 'whenever', :require => false
+
+# SEO対策
+gem 'metamagic'
+gem 'sitemap_generator'
+
+# 簡単定数設定
+gem 'settingslogic'
+
+# Facebook/Twitterの認証
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+
+# 簡単フォーム作成
+gem 'simple_form'
+gem 'country_select'
+
+# rspec
+group :development, :test do
+  gem 'rspec-rails' 
+  gem 'factory_girl_rails'
+  gem "rails3-generators", :git => "https://github.com/neocoin/rails3-generators.git"
+end
+
+# デバック系
+gem 'debugger'

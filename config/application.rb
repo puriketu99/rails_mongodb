@@ -64,5 +64,24 @@ module Minch
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    # LESS
+    config.app_generators.stylesheet_engine :less
+    config.less.paths << "#{Rails.root}/lib/less/protractor/stylesheets"
+    config.less.compress = true
+    config.assets.compress = true
+    
+    # Set timezone
+    config.time_zone = 'Tokyo'
+    
+    # 日本語化
+    config.i18n.default_locale = :ja
+    
+    # generatorの設定
+    config.generators do |g|
+      g.orm :mongoid
+      g.template_engine :haml
+      g.test_framework  :rspec, :fixture => true
+      g.fixture_replacement :factory_girl, :dir => "spec/factories"
+    end
   end
 end

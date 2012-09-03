@@ -1,0 +1,11 @@
+default: &defaults
+  site_name: "MINCH"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
